@@ -339,6 +339,12 @@ class LibtorrentBuildExt(BuildExtBase):
     def _build_extension_with_b2(self):
         python_binding_dir = pathlib.Path(__file__).parent.absolute()
         with self._configure_b2(python_binding_dir):
+            if self.linkflags:
+                for f in self.linkflags:
+                    self._b2_args_split.append("linkflags=" + f)
+            if self.cxxflags:
+                for f in self.cxxflags:
+                    self._b2_args_split.append("cxxflags=" + f)
             command = ["b2"] + self._b2_args_split
             log.info(" ".join(command))
             subprocess.run(command, cwd=python_binding_dir, check=True)
