@@ -200,6 +200,13 @@ class LibtorrentBuildExt(BuildExtBase):
             "(DEPRECATED; use --b2-args=optimization=...) " "b2 optimization mode",
         ),
         (
+            "hash",
+            None,
+            "(DEPRECATED; use --b2-args=--hash) "
+            "use a property hash for the build directory, rather than "
+            "property subdirectories",
+        ),
+        (
             "cxxstd=",
             None,
             "(DEPRECATED; use --b2-args=cxxstd=...) "
