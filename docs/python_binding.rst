@@ -83,7 +83,7 @@ customizing the build
 You can customize the build by passing options to the ``build_ext`` step of
 ``setup.py`` by passing arguments directly to ``b2`` via ``--b2-args=``::
 
-	python setup.py build_ext --b2-args="toolset=msvc-14.2"
+	python setup.py build_ext --b2-args="toolset=msvc-14.2 linkflags=-L../../src/.libs"
 
 For a full list of ``b2`` build options, see `libtorrent build features`_.
 
@@ -93,7 +93,7 @@ Here, it's important to note that ``build_ext`` has no "memory" of the build
 config and arguments you passed to it before. This is *different* from the way
 ``distutils`` normally works. Consider::
 
-	python setup.py build_ext --b2-args"optimization=space"
+	python setup.py build_ext --b2-args="optimization=space"
 	# the following will build with DEFAULT optimization
 	python setup.py install
 
